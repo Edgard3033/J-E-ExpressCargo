@@ -34,6 +34,4 @@ server.use((err, req, res, next) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server listening on PORT ${PORT}`);
-});
+module.exports = server;
