@@ -42,14 +42,11 @@ async function populateTables() {
 }
 
 module.exports = async function rebuildDb() {
-  client.connect();
   try {
     await dropTables();
     await createTables();
     await populateTables();
   } catch (error) {
     console.error(error);
-  } finally {
-    client.end();
   }
 };
