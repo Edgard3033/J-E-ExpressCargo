@@ -23,5 +23,9 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
     "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "supertest": "^6.3.3",
+    "vitest": "^0.32.2"
   }
 }
