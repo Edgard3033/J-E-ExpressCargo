@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 3000;
 const server = express();
 
 const client = require("./db/client");
-client.connect();
 
 server.use(express.json());
 server.use(morgan("dev"));
@@ -34,6 +33,4 @@ server.use((err, req, res, next) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server listening on PORT ${PORT}`);
-});
+module.exports = server;
