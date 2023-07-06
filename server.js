@@ -9,6 +9,7 @@ const server = express();
 
 const client = require("./db/client");
 
+client.connect()
 server.use(express.json());
 server.use(morgan("dev"));
 server.use(cors());
