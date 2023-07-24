@@ -2,9 +2,12 @@ const client = require("./client");
 
 //imports
 const { createUser } = require("./adapters/users");
+const { createCompany } = require("./adapters/companies");
+const { createTruck } = require("./adapters/trucks");
+const { createJob } = require("./adapters/jobs");
 
 //seedData
-const { users } = require("./seedData");
+const { users, companies, trucks, jobs } = require("./seedData");
 
 async function dropTables() {
   console.log("Dropping tables...");
@@ -37,7 +40,7 @@ async function createTables() {
     CREATE TABLE companies(
       id SERIAL PRIMARY KEY,
       name TEXT NOT NULL,
-      adress TEXT NOT NULL,
+      address TEXT NOT NULL,
       contact_email TEXT
     )
     `);
@@ -74,9 +77,23 @@ async function populateTables() {
   console.log("Populating tables...");
   try {
     //USERS
-    console.log("users");
     for (const user of users) {
       await createUser(user);
+    }
+
+    //COMPANIES
+    for (const company of companies) {
+      await createCompany(company);
+    }
+
+    //TRUCKS
+    for (const truck of trucks) {
+      await createTruck(truck);
+    }
+
+    //JOBS
+    for (const job of jobs) {
+      await createJob(job);
     }
   } catch (error) {
     console.error(error);
