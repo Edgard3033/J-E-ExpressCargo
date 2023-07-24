@@ -100,6 +100,8 @@ async function populateTables() {
   }
 }
 
+console.log("all tables created!");
+
 module.exports = async function rebuildDb() {
   try {
     await dropTables();
