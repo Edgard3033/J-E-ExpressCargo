@@ -7,6 +7,8 @@ const client = new Client({
     process.env.DATABASE_URL || `postgres://localhost:5432/${dbName}`,
 });
 
-client.connect();
+if (!client._connect) {
+  client.connect();
+}
 
 module.exports = client;
